@@ -2,13 +2,16 @@
 #include <iostream>
 using namespace std;
 
+int groupNumber = 10;
+
 int* solve(TestAgent* agent) 
 {
+	
 	int length = agent->getSampleNumber();
 	int* result = new int[length];
 	int start = 0;
-	int end = start + 10;
-	int* tests = new int[10];
+	int end = start + groupNumber;
+	int* tests = new int[groupNumber];
 	int exitFlag = 0;
 	while (1) {
 		if (end>=length) {
@@ -39,8 +42,8 @@ int* solve(TestAgent* agent)
 		if (exitFlag) {
 			break;
 		}
-		start += 10;
-		end += 10;
+		start += groupNumber;
+		end += groupNumber;
 	}
 	
 	return result;
@@ -49,8 +52,15 @@ int* solve(TestAgent* agent)
 
 int main()
 {
-	TestAgent* agent = new TestAgent(solve);
-	agent->getResult();
-	delete agent;
+	TestAgent* agent;
+	
+	for (int i = 2; i < 21; i++) {
+		groupNumber = i;
+		agent = new TestAgent(solve);
+		agent->getResult();
+		delete agent;
+	}
+
+	
 	return 0;
 }

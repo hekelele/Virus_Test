@@ -74,15 +74,19 @@ void TestAgent::getResult()
 	this->testTimes = 0;
 	int* answer = this->solve(this);
 	if (this->group->checkAnswer(answer)) {
+		int sum = 0;
+		for (int i = 0; i < this->length; i++) {
+			sum += answer[i];
+		}
 		cout << "Results:"
 			<< endl
-			
+
 			<< "Sample Number: " << this->length
 			<< endl
-			
-			<< "Positive Rate: " 
+
+			<< "Positive Rate: "
 			<< setprecision(5)
-			<< this->positiveRate
+			<< sum * 1.0 / this->length
 			<< endl
 
 			<< "Average Test Time Per Sample: "

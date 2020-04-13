@@ -14,7 +14,7 @@ private:
 };
 
 
-#define DEFAULT_TEST_NUMBER		10000
+#define DEFAULT_TEST_NUMBER		1000000
 #define DEFAULT_POSITIVE_RATE	0.1
 
 class TestGroup;
